@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: webflux-test
+  r2dbc:
+    url: ${R2DBC_HOST}
+    username: ${R2DBC_USERNAME}
+    password: ${R2DBC_PASSWORD}
+
+logging:
+  level:
+    org:
+      springframework:
+        r2dbc: DEBUG
+server:
+  port: ${SERVER_PORT}
+
+jwk:
+  private:
+    key: ${JWK_LOCATION}/${JWK_PRIVATE_PEM}
+  public:
+    key: ${JWK_LOCATION}/${JWK_PUBLIC_PEM}
