@@ -2,9 +2,12 @@ spring:
   application:
     name: webflux-test
   r2dbc:
-    url: ${R2DBC_HOST}
-    username: ${R2DBC_USERNAME}
-    password: ${R2DBC_PASSWORD}
+    url: ${POSTGRES_HOST}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+    properties:
+      schema: ${POSTGRES_SCHEMA}
+    
 
 logging:
   level:

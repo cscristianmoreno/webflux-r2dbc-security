@@ -1,3 +1,5 @@
+CREATE SCHEMA IF NOT EXISTS users;
+
 CREATE TABLE IF NOT EXISTS users (
     id serial NOT NULL PRIMARY KEY,
     username varchar(32) NOT NULL UNIQUE,

@@ -20,8 +20,8 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 
 import reactor.core.publisher.Mono;
 
-@Component
-@Order(-2)
+// @Component
+// @Order(-2)
 public class CustomGlobalException extends AbstractErrorWebExceptionHandler {
 
     public CustomGlobalException(ErrorAttributes errorAttributes, Resources resources,

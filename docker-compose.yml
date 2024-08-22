@@ -1,0 +1,36 @@
+version: "1.0"
+
+services:
+  postgres-service:
+    container_name: postgres-service
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=postgres
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+
+  app-service:
+    container_name: app-service
+    build:
+      context: .
+    depends_on:
+      - postgres-service
+    ports:
+      - 8080:8080
+    environment:
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_USERNAME=${POSTGRES_USERNAME}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_SCHEMA=${POSTGRES_SCHEMA}
+      - SERVER_PORT=${SERVER_PORT}
+
+      - JWK_LOCATION=${JWK_LOCATION}
+      - JWK_PRIVATE_PEM=${JWK_PRIVATE_PEM}
+      - JWK_PUBLIC_PEM=${JWK_PUBLIC_PEM}
+    
+
+volumes:
+  db_volume:
